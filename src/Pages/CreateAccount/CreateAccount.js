@@ -21,7 +21,7 @@ class CreateAccount extends Component {
   }
   submitCreds = (e) => {
     this.props.authActions.registerAuth(this.state.email, this.state.password);
-    if(sessionStorage.getItem("token")) {
+    if(sessionStorage.getItem("token") !== null) {
       this.props.history.push('Home');
     }
     else {

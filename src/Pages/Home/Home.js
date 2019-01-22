@@ -9,6 +9,11 @@ class Home extends Component {
     this.fileInput = React.createRef();
   }
 
+  componentDidMount() {
+    if(sessionStorage.getItem("token") === null) {
+      this.props.history.push('/');
+    }
+  }
   submitFiles = (e) => {
     var formData = new FormData();
     console.log(this.fileInput.current.files[0]);
