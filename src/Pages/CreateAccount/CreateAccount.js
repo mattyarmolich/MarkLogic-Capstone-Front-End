@@ -1,33 +1,32 @@
 import React, { Component } from 'react';
-import './CreateAccount.css';
+import './CreateAccount.scss';
 import Home from '../Home/Home';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+//redux imports
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authActions from '../../utils/actions/authActions';
+
+import {withRouter} from 'react-router-dom';
 class CreateAccount extends Component {
   constructor(props){
     super(props);
     this.state = {
-      username: null,
-      email: null
+      email: null,
+      password: null
     };
 
   }
   submitCreds = (e) => {
-    var credentialJSON = {
-      username: this.state.username, email: this.state.email
-    };
-      axios.post('http://localhost:5001/users', credentialJSON, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-      });
-  }
-
-  setUsername = (event) => {
-    this.setState({
-      username: event.target.value
-    })
+    this.props.authActions.registerAuth(this.state.email, this.state.password);
+    if(sessionStorage.getItem("token")) {
+      this.props.history.push('Home');
+    }
+    else {
+      alert("an error has occurred");
+    }
   }
 
   setEmail = (event) => {
@@ -36,15 +35,21 @@ class CreateAccount extends Component {
     })
   }
 
+  setPassword = (event) => {
+    this.setState({
+      password: event.target.value
+    })
+  }
+
   render() {
     return (
-      <div className = "login-container">
+      <div className="create-account-container">
 
-        <input placeholder = "Username" className = "login" onChange={(e) => this.setUsername(e)}/>
-        <input placeholder = "Email" className = "login" onChange={(e) => this.setEmail(e)} />
+        <input placeholder = "email" className = "login" onChange={(e) => this.setEmail(e)}/>
+        <input type="password" placeholder = "password" className = "login" onChange={(e) => this.setPassword(e)} />
 
-        <button onClick={(e) => this.submitCreds(e)} className="login">
-          Sign Up
+        <button onClick={(e) => this.submitCreds(e)} className="register">
+          Register
         </button>
 
 
@@ -57,4 +62,21 @@ class CreateAccount extends Component {
   }
 }
 
-export default CreateAccount;
+function mapStateToProps(state) {
+  return {
+    authentication: state.credentials
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authActions: bindActionCreators(authActions, dispatch)
+  };
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CreateAccount)
+);

@@ -9,29 +9,20 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class App extends Component {
   constructor() {
     super();
-    this.getUsers();
-  }
-  //http://54.212.203.52:5001/users/register
-  getUsers() {
-    axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
-    .then((res) => { console.log(res); })
-    .catch((err) => { console.log(err); });
   }
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <Route path="/" exact component={Login} />
-            <Route path="/Home/" component={Home} />
-            <Route path="/CreateAccount/" component={CreateAccount} />
-          </header>
-        </div>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <Route path="/" exact component={Login} />
+              <Route path="/Home/" component={Home} />
+              <Route path="/CreateAccount/" component={CreateAccount} />
+            </header>
+          </div>
 
-      </Router>
-
-
+        </Router>
     );
   }
 }

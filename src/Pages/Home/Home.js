@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
 import DragDrop from './../../Components/DragDrop/DragDrop';
-
+import Header from '../../Components/Header/Header';
 class Home extends Component {
   constructor(props) {
     super(props);
     this.fileInput = React.createRef();
   }
+
   submitFiles = (e) => {
     var formData = new FormData();
     console.log(this.fileInput.current.files[0]);
@@ -25,7 +26,8 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <DragDrop/>
+        <Header/>
+          <DragDrop/>
       </div>
 
     )
