@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './CreateAccount.css';
 import Home from '../Home/Home';
 import { Link } from "react-router-dom";
-import Input from '@material-ui/core/Input';
 import axios from 'axios';
 
 class CreateAccount extends Component {
@@ -41,8 +40,8 @@ class CreateAccount extends Component {
     return (
       <div className = "login-container">
 
-        <Input placeholder = "Username" className = "login" onChange={(e) => this.setUsername(e)}/>
-        <Input placeholder = "Email" className = "login" onChange={(e) => this.setEmail(e)} />
+        <input placeholder = "Username" className = "login" onChange={(e) => this.setUsername(e)}/>
+        <input placeholder = "Email" className = "login" onChange={(e) => this.setEmail(e)} />
 
         <button onClick={(e) => this.submitCreds(e)} className="login">
           Sign Up
