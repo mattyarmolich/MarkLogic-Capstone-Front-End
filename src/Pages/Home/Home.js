@@ -3,6 +3,8 @@ import './Home.css';
 import axios from 'axios';
 import DragDrop from './../../Components/DragDrop/DragDrop';
 import Header from '../../Components/Header/Header';
+import FileUpload from '../../Components/FileUpload/FileUpload';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +35,7 @@ class Home extends Component {
       <div className="home-container">
         <Header/>
           <DragDrop/>
+          <FileUpload/>
       </div>
 
     )
