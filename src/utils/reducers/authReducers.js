@@ -9,6 +9,7 @@ export default function credentials(state = initialState.credentials, action) {
     case RECEIVE_AUTH:
       sessionStorage.setItem('token', action.authentication.data.auth_token);
       return Object.assign({}, state, {
+        authenticated: true,
         token: sessionStorage.getItem('token'),
       });
 

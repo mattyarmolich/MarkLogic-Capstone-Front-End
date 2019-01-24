@@ -19,7 +19,7 @@ export function fetchAuth(user, pass) {
       .then(res => {
         dispatch(receiveAuth(res));
       })
-      .catch(err => console.log(err));
+      .catch(err => alert("incorrect login"));
   };
 }
 

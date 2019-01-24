@@ -35,13 +35,20 @@ class Login extends Component {
       })
     }
   }
-  onSubmit = () => {
-    this.props.authActions.fetchAuth(this.state.email, this.state.password);
-    console.log(sessionStorage.getItem("token"));
-    if(sessionStorage.getItem("token")) {
-      this.props.history.push('Home');
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.authentication.authenticated) {
+      this.props.history.push('/Home');
+    }
+    else {
+      alert("incorrect password");
     }
   }
+
+  onSubmit = () => {
+    this.props.authActions.fetchAuth(this.state.email, this.state.password);
+  }
+
   render() {
 
     return (
@@ -79,6 +86,6 @@ function mapDispatchToProps(dispatch) {
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
   )(Login)
 );
