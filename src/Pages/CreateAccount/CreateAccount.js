@@ -19,14 +19,17 @@ class CreateAccount extends Component {
     };
 
   }
-  submitCreds = (e) => {
-    this.props.authActions.registerAuth(this.state.email, this.state.password);
-    if(sessionStorage.getItem("token") !== null) {
-      this.props.history.push('Home');
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.authentication.authenticated) {
+      this.props.history.push('/Home');
     }
     else {
-      alert("an error has occurred");
+      alert("incorrect password");
     }
+  }
+
+  submitCreds = (e) => {
+    this.props.authActions.registerAuth(this.state.email, this.state.password);
   }
 
   setEmail = (event) => {
