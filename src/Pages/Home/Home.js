@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import './Home.css';
 import axios from 'axios';
-import DragDrop from './../../Components/DragDrop/DragDrop';
+import Uploads from '../UploadsPage/Uploads';
 import Header from '../../Components/Header/Header';
+import StepZilla from "react-stepzilla";
+import ResultPage from '../ResultPage/ResultPage';
+
+const steps =
+  [
+    {name: 'Upload Files', component: <Uploads />},
+    {name: 'Result', component: <ResultPage />},
+  ]
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -28,11 +37,14 @@ class Home extends Component {
     }
   }
 
+
   render() {
     return (
       <div className="home-container">
         <Header/>
-          <DragDrop/>
+        <div className='step-progress'>
+          <StepZilla steps={steps} stepsNavigation={false} prevBtnOnLastStep={true} />
+        </div>
       </div>
 
     )

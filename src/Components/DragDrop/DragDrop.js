@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './DragDrop.scss';
+import axios from 'axios';
 
 class DragDrop extends Component {
     constructor(props) {
@@ -8,9 +9,31 @@ class DragDrop extends Component {
       this.state = {
           dragging: false,
           files: [
-
           ]
       }
+    }
+
+    submitFile = (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+        this.state.files.map( (file, index) => {
+          console.log(index);
+        })
+        formData.append('file', this.state.files[0]);
+        axios.get('/upload', {
+            params: {
+                // hard coded test params for now
+                file_name: "Basic_Stats.csv",
+                user_id: 12345,
+                bucket_name: "uploads" | "classified"
+            }
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     handleFileDrop = (files) => {
@@ -86,6 +109,7 @@ class DragDrop extends Component {
                     </div>
                 </div>
                 }
+                <button onClick={(e) => this.submitFile(e)}>submit</button>
             </div>
         )
     }

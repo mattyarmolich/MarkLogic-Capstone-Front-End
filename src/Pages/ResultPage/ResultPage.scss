@@ -1,0 +1,12 @@
+.result-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.results-view {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 60vh;
+  background-color: gray;
+}
