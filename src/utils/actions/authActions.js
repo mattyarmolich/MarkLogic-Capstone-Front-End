@@ -5,7 +5,7 @@ export function receiveAuth(json) {
 }
 
 //landon comments
-
+//
 export function fetchAuth(user, pass) {
   return dispatch => {
     axios({
@@ -43,3 +43,4 @@ export function registerAuth(user, pass) {
       .catch(err => console.log(err));
   };
 }
+//
