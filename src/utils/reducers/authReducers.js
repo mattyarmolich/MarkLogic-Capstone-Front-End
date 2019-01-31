@@ -6,6 +6,7 @@ export default function credentials(state = initialState.credentials, action) {
     case FETCH_AUTH:
       console.log('FETCH_STUFF Action');
       return action;
+      // This doesn't do anything?
     case RECEIVE_AUTH:
       sessionStorage.setItem('token', action.authentication.data.auth_token);
       if(sessionStorage.getItem('token') === "undefined") {
