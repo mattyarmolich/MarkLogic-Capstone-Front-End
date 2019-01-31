@@ -4,6 +4,8 @@ export function receiveAuth(json) {
   return { type: types.RECEIVE_AUTH, authentication: json };
 }
 
+//landon comments
+
 export function fetchAuth(user, pass) {
   return dispatch => {
     axios({
