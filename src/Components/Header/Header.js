@@ -1,27 +1,31 @@
-import React, { Component } from 'react';
-import './Header.scss';
-import { NavLink, Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import "./Header.scss";
+import { NavLink, Link } from "react-router-dom";
+import axios from "axios";
 
 class Header extends Component {
   constructor(props) {
     super(props);
   }
   logout = () => {
-
     var headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + sessionStorage.getItem("token")
     };
     console.log(sessionStorage.getItem("token"));
-    axios.post('http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com/users/logout', "", {headers: headers})
-      .then(function (response) {
+    axios
+      .post(
+        "http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com/users/logout",
+        "",
+        { headers: headers }
+      )
+      .then(function(response) {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
       });
-    sessionStorage.removeItem('token');
+    sessionStorage.removeItem("token");
   };
 
   render() {
@@ -33,22 +37,6 @@ class Header extends Component {
             <NavLink className="navigation-link" to="/Home">
               Home
             </NavLink>
-            <NavLink className="navigation-link" to="/link3">
-              Link1
-            </NavLink>
-            <NavLink className="navigation-link" to="/link2">
-              Link2
-            </NavLink>
-            <NavLink className="navigation-link" to="/link1">
-              Link3
-            </NavLink>
-            {sessionStorage.getItem('centerId') === 5709 ? (
-              <NavLink className="navigation-link" to="/edit-deploy">
-                Edit/Deploy
-              </NavLink>
-            ) : (
-              <div />
-            )}
           </div>
           <div className="dropdown-container">
             <div className="dropdown">
