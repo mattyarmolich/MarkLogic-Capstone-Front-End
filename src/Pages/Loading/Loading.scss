@@ -1,5 +1,5 @@
 
-.result-container {
+.loading-container {
   display: flex;
   color: black;
   margin-top: 10%;
@@ -17,7 +17,7 @@
     justify-content: center;
     padding-bottom: 24px;
   }
-  .results-view {
+  .loading-view {
     display: flex;
     flex-direction: column;
     width: 80vw;

@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
-import './Loading.scss';
-import axios from 'axios';
+import React, { Component } from "react";
+import "./Loading.scss";
+import axios from "axios";
 
 class Loading extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   render() {
     return (
-      <div className="result-container">
-        <div className="results-view">
+      <div className="loading-container">
+        <div className="loading-view">
           <div className="Title-text">Loading</div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
@@ -22,8 +20,7 @@ class Loading extends Component {
           </div>
         </div>
       </div>
-
-    )
+    );
   }
 }
 

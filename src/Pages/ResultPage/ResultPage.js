@@ -17,7 +17,7 @@ class ResultPage extends Component {
           <div className="player-card-container">Player Cards</div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
-            <button onClick={this.props.previousStep}>next</button>
+            <button onClick={this.props.nextStep}>next</button>
           </div>
         </div>
       </div>
