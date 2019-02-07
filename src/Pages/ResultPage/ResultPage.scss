@@ -5,25 +5,18 @@
   margin-top: 10%;
   align-items: center;
   justify-content: flex-end;
-  .upload-file-modal {
-    bottom: 50%;
-    margin-top: 20%;
-    border: none;
-    outline: none;
-    background-color: white;
-    width: 90%;
-  }
 
-  .current-files {
-    list-style-type: none;
-    padding-left: 0px;
-  }
   .Title-text {
     margin: 4px;
     margin-top: 20px
   }
-  .upload-button {
-
+  .bottom-part {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 24px;
+    flex-direction: column;
   }
   .results-view {
     display: flex;
@@ -33,9 +26,4 @@
     background-color: #ecf0f1;
     border-radius: 4px;
   }
-
-
-  .new-file-upload {
-  }
-
 }

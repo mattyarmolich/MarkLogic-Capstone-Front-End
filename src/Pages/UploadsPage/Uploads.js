@@ -46,7 +46,11 @@ class Uploads extends Component {
             </ul>
 
           </div>
-          <button className="upload-button" onClick={() => this.handleOpenModal()}>Upload New File</button>
+          <div className="bottom-part">
+            <button className="upload-button" onClick={() => this.handleOpenModal()}>Upload New File</button>
+            <button className="next" onClick={this.props.nextStep}>next</button>
+          </div>
+
             <Modal
               isOpen={this.state.showModal}
               onAfterOpen={this.afterOpenModal}
@@ -55,9 +59,10 @@ class Uploads extends Component {
               contentLabel="Example Modal"
             >
             <button onClick={() => this.handleCloseModal()}>close</button>
+
             <DragDrop />
             </Modal>
-            <button className="next" onClick={this.props.nextStep}>next</button>
+
         </div>
       </div>
 

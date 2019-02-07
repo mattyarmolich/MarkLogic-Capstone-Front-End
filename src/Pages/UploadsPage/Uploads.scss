@@ -37,7 +37,14 @@
     background-color: #ecf0f1;
     border-radius: 4px;
   }
-
+  .bottom-part {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 24px;
+    flex-direction: column;
+  }
 
   .new-file-upload {
   }
