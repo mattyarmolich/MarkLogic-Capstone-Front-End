@@ -4,6 +4,7 @@ import Uploads from '../UploadsPage/Uploads';
 import Header from '../../Components/Header/Header';
 import StepWizard from "react-step-wizard";
 import ResultPage from '../ResultPage/ResultPage';
+import Loading from '../Loading/Loading';
 
 class Home extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Home extends Component {
         <Header/>
           <StepWizard>
             <Uploads/>
+            <Loading/>
             <ResultPage/>
           </StepWizard>
       </div>
