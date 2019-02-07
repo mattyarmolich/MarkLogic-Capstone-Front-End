@@ -7,7 +7,7 @@
 
 .header {
   min-height: 6vh;
-  background-color: gray;
+  background-color: #3F51B5;
   width: 100vw;
   align-items: center;
   display: flex;
@@ -101,11 +101,11 @@
 
 .active {
   font-size: 16px;
-  color: #e91e63;
+  color: white;
 }
 
 .line {
   min-height: 3px;
   width: 100vw;
-  background-color: #415a77;
+  background-color: white;
 }
