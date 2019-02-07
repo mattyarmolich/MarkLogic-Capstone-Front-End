@@ -4,6 +4,7 @@ import Uploads from "../UploadsPage/Uploads";
 import Header from "../../Components/Header/Header";
 import StepWizard from "react-step-wizard";
 import ResultPage from "../ResultPage/ResultPage";
+import ExportPage from "../ExportPage/ExportPage";
 import Loading from "../Loading/Loading";
 
 class Home extends Component {
@@ -36,6 +37,7 @@ class Home extends Component {
           <Uploads />
           <Loading />
           <ResultPage />
+          <ExportPage />
         </StepWizard>
         <div>{this.state.currentStep}</div>
       </div>
