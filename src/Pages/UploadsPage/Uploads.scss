@@ -1,20 +1,45 @@
-.upload-file-modal {
-  margin: auto;
-  bottom: 50%;
-  margin-top: 20%;
-  border: none;
-  outline: none;
-  background-color: white;
-  width: 90%;
+.ReactModal__Overlay, ReactModal__Overlay {
+  top: 50px;
 }
 
-.uploads-view {
+
+.uploads-container {
   display: flex;
-  flex-direction: column;
-  width: 80vw;
-  height: 60vh;
-  background-color: gray;
-}
+  color: black;
+  margin-top: 10%;
+  align-items: center;
+  justify-content: flex-end;
+  .upload-file-modal {
+    bottom: 50%;
+    margin-top: 20%;
+    border: none;
+    outline: none;
+    background-color: white;
+    width: 90%;
+  }
 
-.new-file-upload {
+  .current-files {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  .Title-text {
+    margin: 4px;
+    margin-top: 20px
+  }
+  .upload-button {
+
+  }
+  .uploads-view {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 70vh;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+  }
+
+
+  .new-file-upload {
+  }
+
 }

@@ -15,7 +15,8 @@ class ResultPage extends Component {
     return (
       <div className="result-container">
         <div className="results-view">
-          hello
+          Results
+          <button onClick={this.props.previousStep}>previous</button>
         </div>
       </div>
 

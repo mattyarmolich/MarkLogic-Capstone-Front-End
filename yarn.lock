@@ -7261,9 +7261,9 @@ react-scripts@2.1.1:
   optionalDependencies:
     fsevents "1.2.4"
 
-react-stepzilla@^5.0.0:
+react-step-wizard@^5.0.0:
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-stepzilla/-/react-stepzilla-5.0.0.tgz#b5d7caaf5c914744bf7bd192131d3e348bc15789"
+  resolved "https://registry.yarnpkg.com/react-step-wizard/-/react-step-wizard-5.0.0.tgz#f8f44cc39c99ddcbfd25dc7642ac016fd793e627"
 
 react@^16.6.3:
   version "16.7.0"

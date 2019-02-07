@@ -9,6 +9,9 @@ class DragDrop extends Component {
       this.state = {
           dragging: false,
           files: [
+          ],
+          filesToUpload: [
+
           ]
       }
     }
@@ -16,18 +19,22 @@ class DragDrop extends Component {
     submitFile = (event) => {
         event.preventDefault();
         const formData = new FormData();
-        this.state.files.map( (file, index) => {
-          console.log(index);
+        this.state.filesToUpload.map( (file, index) => {
+          formData.append(this.state.files[index], file, this.state.files[index]);
         })
-        formData.append('file', this.state.files[0]);
-        axios.get('/upload', {
-            params: {
-                // hard coded test params for now
-                file_name: "Basic_Stats.csv",
-                user_id: 12345,
-                bucket_name: "uploads" | "classified"
-            }
-          })
+
+        formData.append("bucket_name", "uploads")
+        var headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token"),
+
+        };
+        var data = {
+          bucket_name: 'uploads',
+          file1: formData
+        }
+        console.log(sessionStorage.getItem("token"));
+        axios.post('http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com/s3/upload', formData, {headers: headers})
           .then(function (response) {
             console.log(response);
           })
@@ -38,11 +45,14 @@ class DragDrop extends Component {
 
     handleFileDrop = (files) => {
       let fileList = this.state.files
+      let fileUploads = this.state.filesToUpload;
       for (var i = 0; i < files.length; i++) {
         if (!files[i].name) return
         fileList.push(files[i].name)
+        fileUploads.push(files[i]);
       }
-      this.setState({files: fileList})
+
+      this.setState({files: fileList, filesToUpload: fileUploads})
     }
 
     handleDrop = (e) => {

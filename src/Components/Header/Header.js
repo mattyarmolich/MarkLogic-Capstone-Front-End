@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import './Header.scss';
 import { NavLink, Link } from 'react-router-dom';
+import axios from 'axios';
+
 class Header extends Component {
   constructor(props) {
     super(props);
-
   }
   logout = () => {
+
+    var headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+    };
+    console.log(sessionStorage.getItem("token"));
+    axios.post('http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com/users/logout', "", {headers: headers})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     sessionStorage.removeItem('token');
   };
 

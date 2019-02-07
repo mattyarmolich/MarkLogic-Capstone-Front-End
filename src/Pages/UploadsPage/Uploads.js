@@ -10,7 +10,10 @@ class Uploads extends Component {
   constructor () {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      files: [
+        "file0", "file1", "file2"
+      ]
     };
 
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -34,8 +37,16 @@ class Uploads extends Component {
     return (
       <div className="uploads-container">
         <div className="uploads-view">
-          text
-          <button className="new-file-upload" onClick={() => this.handleOpenModal()}>Upload New File</button>
+          <div className="Title-text">Files</div>
+          <div className="current-files">
+            <ul className="current-files">
+            {
+              this.state.files.map((item,i) => <li key={i}>{item}</li>)
+            }
+            </ul>
+
+          </div>
+          <button className="upload-button" onClick={() => this.handleOpenModal()}>Upload New File</button>
             <Modal
               isOpen={this.state.showModal}
               onAfterOpen={this.afterOpenModal}
@@ -43,14 +54,11 @@ class Uploads extends Component {
               className="upload-file-modal"
               contentLabel="Example Modal"
             >
-              <button onClick={() => this.handleCloseModal()}>close</button>
-              <DragDrop />
-
+            <button onClick={() => this.handleCloseModal()}>close</button>
+            <DragDrop />
             </Modal>
+            <button className="next" onClick={this.props.nextStep}>next</button>
         </div>
-
-
-
       </div>
 
     )
