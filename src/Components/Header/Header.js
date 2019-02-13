@@ -14,11 +14,7 @@ class Header extends Component {
     };
     console.log(sessionStorage.getItem("token"));
     axios
-      .post(
-        "http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com/users/logout",
-        "",
-        { headers: headers }
-      )
+      .post("http://54.218.72.52/users/logout", "", { headers: headers })
       .then(function(response) {
         console.log(response);
       })

@@ -1,5 +1,5 @@
-import * as types from './actionTypes';
-import axios from 'axios';
+import * as types from "./actionTypes";
+import axios from "axios";
 export function receiveAuth(json) {
   return { type: types.RECEIVE_AUTH, authentication: json };
 }
@@ -7,9 +7,8 @@ export function receiveAuth(json) {
 export function fetchAuth(user, pass) {
   return dispatch => {
     axios({
-      url:
-        'http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com:5001/users/login',
-      method: 'POST',
+      url: "http://54.218.72.52:5001/users/login",
+      method: "POST",
       json: true,
       data: {
         email: user,
@@ -26,9 +25,8 @@ export function fetchAuth(user, pass) {
 export function registerAuth(user, pass) {
   return dispatch => {
     axios({
-      url:
-        'http://ec2-52-33-68-240.us-west-2.compute.amazonaws.com:5001/users/register',
-      method: 'POST',
+      url: "http://54.218.72.52:5001/users/register",
+      method: "POST",
       json: true,
       data: {
         email: user,
