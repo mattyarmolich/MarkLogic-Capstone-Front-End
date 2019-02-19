@@ -32,7 +32,7 @@ class DragDrop extends Component {
     };
     console.log(sessionStorage.getItem("token"));
     axios
-      .post("http://54.218.72.52/s3/upload", formData, {
+      .post("http://52.33.68.240/s3/upload", formData, {
         onUploadProgress: ProgressEvent => {
           this.setState({
             loaded: (ProgressEvent.loaded / ProgressEvent.total) * 100

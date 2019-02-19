@@ -1,12 +1,10 @@
 .ReactModal__Overlay, ReactModal__Overlay {
   top: 50px;
 }
-
-
 .uploads-container {
   display: flex;
   color: black;
-  margin-top: 10%;
+  margin-top: 5%;
   align-items: center;
   justify-content: flex-end;
   .upload-file-modal {
@@ -16,6 +14,29 @@
     outline: none;
     background-color: white;
     width: 90%;
+  }
+
+  .file-list-item {
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 4px;
+    border: 1px dotted black;
+  }
+  .file-list-item {
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 4px;
+  }
+
+  .active-item {
+      background-color: #3F51B5;
+      color: white;
+  }
+
+  .file-list-item:hover {
+    background-color: #3F51B5;
+    color: white;
   }
 
   .current-files {
@@ -32,8 +53,8 @@
   .uploads-view {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    height: 70vh;
+    width: 90vw;
+    height: 80vh;
     background-color: #ecf0f1;
     border-radius: 4px;
   }

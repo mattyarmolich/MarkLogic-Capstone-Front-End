@@ -2,7 +2,7 @@
 .loading-container {
   display: flex;
   color: black;
-  margin-top: 10%;
+  margin-top: 5%;
   align-items: center;
   justify-content: flex-end;
 
@@ -20,9 +20,19 @@
   .loading-view {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    height: 70vh;
+    width: 90vw;
+    height: 80vh;
     background-color: #ecf0f1;
     border-radius: 4px;
+  }
+
+  .active-show {
+    margin: 24px;
+    transition: 1s all;
+    opacity: 1;
+  }
+
+  .inactive {
+    opacity: 0;
   }
 }

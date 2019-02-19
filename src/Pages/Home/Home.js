@@ -6,7 +6,7 @@ import StepWizard from "react-step-wizard";
 import ResultPage from "../ResultPage/ResultPage";
 import ExportPage from "../ExportPage/ExportPage";
 import Loading from "../Loading/Loading";
-
+import PreviewData from "../PreviewData/PreviewData";
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -36,10 +36,11 @@ class Home extends Component {
         <StepWizard nav="" onStepChange={() => this.updateCounter()}>
           <Uploads />
           <Loading />
+          <PreviewData />
+          <Loading />
           <ResultPage />
           <ExportPage />
         </StepWizard>
-        <div>{this.state.currentStep}</div>
       </div>
     );
   }

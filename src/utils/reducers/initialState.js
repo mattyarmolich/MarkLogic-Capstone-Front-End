@@ -1,5 +1,5 @@
 export default {
   credentials: {
-    authenticated: false
+    authenticated: true
   }
 };

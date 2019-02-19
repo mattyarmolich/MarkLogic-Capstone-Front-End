@@ -16,7 +16,6 @@ class ExportPage extends Component {
           <div className="Title-text">Export</div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
-            <button onClick={this.props.nextStep}>next</button>
           </div>
         </div>
       </div>

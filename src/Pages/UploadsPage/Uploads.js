@@ -13,7 +13,8 @@ class Uploads extends Component {
     super();
     this.state = {
       showModal: false,
-      files: ["file0", "file1", "file2"]
+      files: ["file0", "file1", "file2"],
+      selectedFile: null
     };
 
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -28,17 +29,36 @@ class Uploads extends Component {
     this.setState({ showModal: false });
   };
 
-  componentDidMount() {}
+  setSelectedFile = e => {
+    if (this.state.selectedFile !== null) {
+      document
+        .getElementById(this.state.selectedFile.id)
+        .classList.remove("active-item");
+    }
+    this.setState({
+      selectedFile: e.target
+    });
+    document.getElementById(e.target.id).classList.add("active-item");
+  };
 
+  nextStep = e => {
+    console.log(this.state.selectedFile);
+    this.props.nextStep();
+  };
   render() {
     return (
       <div className="uploads-container">
         <div className="uploads-view">
-          <div className="Title-text">Files</div>
+          <div className="Title-text">Select a file you wish to classify:</div>
           <div className="current-files">
-            <ul className="current-files">
+            <ul
+              className="current-files"
+              onClick={e => this.setSelectedFile(e)}
+            >
               {this.state.files.map((item, i) => (
-                <li key={i}>{item}</li>
+                <li id={i} className="file-list-item" key={i + 1}>
+                  {i}. {item}
+                </li>
               ))}
             </ul>
           </div>
@@ -49,7 +69,7 @@ class Uploads extends Component {
             >
               Upload New File
             </button>
-            <button className="next" onClick={this.props.nextStep}>
+            <button className="next" onClick={e => this.nextStep(e)}>
               next
             </button>
           </div>
@@ -62,7 +82,6 @@ class Uploads extends Component {
             contentLabel="Example Modal"
           >
             <button onClick={() => this.handleCloseModal()}>close</button>
-
             <DragDrop />
           </Modal>
         </div>
