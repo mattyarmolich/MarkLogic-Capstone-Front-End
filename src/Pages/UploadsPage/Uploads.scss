@@ -1,20 +1,23 @@
 .ReactModal__Overlay, ReactModal__Overlay {
   top: 50px;
 }
+
+.upload-file-modal {
+  bottom: 50%;
+  margin-top: 20%;
+  border: none;
+  outline: none;
+  background-color: white;
+  width: 90%;
+}
+
 .uploads-container {
   display: flex;
   color: black;
   margin-top: 5%;
   align-items: center;
   justify-content: flex-end;
-  .upload-file-modal {
-    bottom: 50%;
-    margin-top: 20%;
-    border: none;
-    outline: none;
-    background-color: white;
-    width: 90%;
-  }
+
 
   .file-list-item {
     text-align: left;
