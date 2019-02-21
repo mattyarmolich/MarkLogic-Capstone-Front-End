@@ -7,7 +7,8 @@ export function receiveAuth(json) {
 export function fetchAuth(user, pass) {
   return dispatch => {
     axios({
-      url: "http://52.33.68.240/users/login",
+      url:
+        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/users/login",
       method: "POST",
       json: true,
       data: {
@@ -25,7 +26,8 @@ export function fetchAuth(user, pass) {
 export function registerAuth(user, pass) {
   return dispatch => {
     axios({
-      url: "http://52.33.68.240/users/register",
+      url:
+        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/users/register",
       method: "POST",
       json: true,
       data: {
