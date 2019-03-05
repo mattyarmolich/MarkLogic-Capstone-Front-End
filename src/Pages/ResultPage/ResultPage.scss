@@ -5,7 +5,7 @@
   margin-top: 5%;
   align-items: center;
   justify-content: flex-end;
-
+  height: 100%;
   .Title-text {
     margin: 4px;
     margin-top: 20px
@@ -14,11 +14,18 @@
   .player-card-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
     height: 90%;
     margin: 10px;
-    border: 1px dashed black;
+    list-style-type: none;
+    padding-left: 0px;
     border-radius: 4px;
+    overflow-y: scroll;
+
+    .player-card-object {
+      border: 1px dashed black;
+      width: 100%;
+    }
   }
   .bottom-part {
     display: flex;
