@@ -332,6 +332,16 @@ class ResultPage extends Component {
 
   componentDidMount() {}
 
+  _downloadTxtFile = object => {
+    const fileData = JSON.stringify(object);
+    const blob = new Blob([fileData], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.download = "tempFile.json";
+    link.href = url;
+    link.click();
+  };
+
   render() {
     return (
       <div className="result-container">
@@ -344,6 +354,9 @@ class ResultPage extends Component {
                 <div>{object.first_name}</div>
                 <div>{object.last_name}</div>
                 <div>{object.email}</div>
+                <button onClick={() => this._downloadTxtFile(object)}>
+                  Download
+                </button>
               </li>
             ))}
           </ul>
