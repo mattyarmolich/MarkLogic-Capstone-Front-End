@@ -4,6 +4,11 @@ import axios from "axios";
 import DragDrop from "./../../Components/DragDrop/DragDrop";
 import Modal from "react-modal";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as s3Actions from "../../utils/actions/s3Actions";
+import { Switch, Route, withRouter } from "react-router-dom";
+
 if (process.env.NODE_ENV !== "test") {
   Modal.setAppElement("#root");
 }
@@ -11,6 +16,7 @@ if (process.env.NODE_ENV !== "test") {
 class Uploads extends Component {
   constructor() {
     super();
+
     this.state = {
       showModal: false,
       files: ["file0", "file1", "file2"],
@@ -20,6 +26,9 @@ class Uploads extends Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+  componentDidMount() {
+    this.props.s3Actions.fetchFiles();
+  }
   handleOpenModal = () => {
     console.log("this ran");
     this.setState({ showModal: true });
@@ -90,4 +99,21 @@ class Uploads extends Component {
   }
 }
 
-export default Uploads;
+function mapStateToProps(state) {
+  return {
+    files: state.files
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    s3Actions: bindActionCreators(s3Actions, dispatch)
+  };
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Uploads)
+);
