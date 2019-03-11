@@ -1,62 +1,67 @@
-import React, { Component } from 'react';
-import './CreateAccount.scss';
-import Home from '../Home/Home';
+import React, { Component } from "react";
+import "./CreateAccount.scss";
+import Home from "../Home/Home";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 //redux imports
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as authActions from '../../utils/actions/authActions';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as authActions from "../../utils/actions/authActions";
 
-import {withRouter} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 class CreateAccount extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       email: null,
       password: null
     };
-
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.authentication.authenticated) {
-      this.props.history.push('/Home');
-    }
-    else {
-      alert("incorrect password");
+      this.props.history.push("/Home");
+    } else {
+      alert("An Error Occurred While Creating Your Account");
     }
   }
 
-  submitCreds = (e) => {
+  submitCreds = e => {
     this.props.authActions.registerAuth(this.state.email, this.state.password);
-  }
+  };
 
-  setEmail = (event) => {
+  setEmail = event => {
     this.setState({
       email: event.target.value
-    })
-  }
+    });
+  };
 
-  setPassword = (event) => {
+  setPassword = event => {
     this.setState({
       password: event.target.value
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <div className="create-account-container">
+        <input
+          placeholder="email"
+          className="login"
+          onChange={e => this.setEmail(e)}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          className="login"
+          onChange={e => this.setPassword(e)}
+        />
 
-        <input placeholder = "email" className = "login" onChange={(e) => this.setEmail(e)}/>
-        <input type="password" placeholder = "password" className = "login" onChange={(e) => this.setPassword(e)} />
-
-        <button onClick={(e) => this.submitCreds(e)} className="register">
+        <button onClick={e => this.submitCreds(e)} className="register">
           Register
         </button>
 
-
-        <div className = "footer">
+        <div className="footer">
           Already have an Account?
           <Link to="/">Login</Link>
         </div>
