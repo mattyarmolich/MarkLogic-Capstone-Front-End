@@ -27,13 +27,12 @@ class DragDrop extends Component {
       Authorization: "Bearer " + sessionStorage.getItem("token")
     };
     var data = {
-      bucket_name: "uploads",
       file1: formData
     };
     console.log(sessionStorage.getItem("token"));
     axios
       .post(
-        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/s3/upload",
+        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/s3/uploadOriginal",
         formData,
         {
           onUploadProgress: ProgressEvent => {

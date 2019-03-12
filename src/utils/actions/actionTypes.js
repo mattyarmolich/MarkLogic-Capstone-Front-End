@@ -5,3 +5,7 @@ export const GET_LOADING = "GET_LOADING";
 
 export const GET_FILES = "GET_FILES";
 export const RECEIVE_FILES = "RECEIVE_FILES";
+export const SET_SELECTED = "SET_SELECTED";
+
+export const GET_CLASSIFIER = "GET_FILES";
+export const RECEIVE_CLASSIFIER = "RECEIVE_CLASSIFIER";

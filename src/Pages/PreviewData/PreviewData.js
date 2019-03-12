@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./PreviewData.scss";
 import CSVTEST from "../../csvtest";
 import CSVTable from "../../Components/CSV Visualize/csv_table";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as s3Actions from "../../utils/actions/s3Actions";
+import { Switch, Route, withRouter } from "react-router-dom";
 
 class PreviewData extends Component {
   constructor(props) {
@@ -9,6 +13,17 @@ class PreviewData extends Component {
   }
 
   componentDidMount() {}
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.selected !== undefined &&
+      this.props.selected !== null &&
+      nextProps.isActive
+    ) {
+      console.log(this.props.selected.file_links);
+      //^ contains the s3 link, go ahead and download it and put it in the state and do whatever you need to do to it
+    }
+  }
 
   render() {
     return (
@@ -31,4 +46,20 @@ class PreviewData extends Component {
   }
 }
 
-export default PreviewData;
+function mapStateToProps(state) {
+  return {
+    files: state.s3.files,
+    selected: state.s3.selected
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(PreviewData)
+);

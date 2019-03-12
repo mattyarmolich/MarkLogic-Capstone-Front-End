@@ -19,7 +19,6 @@ class Uploads extends Component {
 
     this.state = {
       showModal: false,
-      files: ["file0", "file1", "file2"],
       selectedFile: null
     };
 
@@ -40,18 +39,25 @@ class Uploads extends Component {
 
   setSelectedFile = e => {
     if (this.state.selectedFile !== null) {
-      document
-        .getElementById(this.state.selectedFile.id)
-        .classList.remove("active-item");
+      var y = document.getElementById(this.state.selectedFile.id);
+      if (y !== null) {
+        y.classList.remove("active-item");
+      }
     }
+
+    this.props.s3Actions.setActiveFile(this.props.files[e.target.id]);
+
     this.setState({
       selectedFile: e.target
     });
-    document.getElementById(e.target.id).classList.add("active-item");
+
+    var x = document.getElementById(e.target.id);
+    if (x !== null) {
+      x.classList.add("active-item");
+    }
   };
 
   nextStep = e => {
-    console.log(this.state.selectedFile);
     this.props.nextStep();
   };
   render() {
@@ -64,11 +70,17 @@ class Uploads extends Component {
               className="current-files"
               onClick={e => this.setSelectedFile(e)}
             >
-              {this.state.files.map((item, i) => (
-                <li id={i} className="file-list-item" key={i + 1}>
-                  {i}. {item}
-                </li>
-              ))}
+              {this.props.files &&
+                this.props.files.map((item, i) => (
+                  <li
+                    id={i}
+                    value={item}
+                    className="file-list-item"
+                    key={i + 1}
+                  >
+                    {i}) {item.file_names}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="bottom-part">
@@ -78,9 +90,11 @@ class Uploads extends Component {
             >
               Upload New File
             </button>
-            <button className="next" onClick={e => this.nextStep(e)}>
-              next
-            </button>
+            {this.props.selected && (
+              <button className="next" onClick={e => this.nextStep(e)}>
+                next
+              </button>
+            )}
           </div>
 
           <Modal
@@ -101,7 +115,8 @@ class Uploads extends Component {
 
 function mapStateToProps(state) {
   return {
-    files: state.files
+    files: state.s3.files,
+    selected: state.s3.selected
   };
 }
 
