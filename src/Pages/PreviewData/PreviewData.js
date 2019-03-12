@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./PreviewData.scss";
+import CSVTEST from "../../csvtest";
+import CSVTable from "../../Components/CSV Visualize/csv_table";
 
 class PreviewData extends Component {
   constructor(props) {
@@ -14,7 +16,10 @@ class PreviewData extends Component {
         <div className="preview-view">
           <div className="Title-text">Data Preview</div>
           <div className="player-card-container">
-            Preview for: (SELECTED FILE)
+            {/* all you need to do here is get headers from csv as headers and the rest is data */}
+            {/* <CSVTable headers={null} data={null} /> */}
+            <CSVTEST />
+            {/* ^ delete CSVTEST ^ */}
           </div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
