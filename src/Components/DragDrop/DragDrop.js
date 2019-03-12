@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "./DragDrop.scss";
 import axios from "axios";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as s3Actions from "../../utils/actions/s3Actions";
+import { Switch, Route, withRouter } from "react-router-dom";
+
 class DragDrop extends Component {
   constructor(props) {
     super(props);
@@ -43,9 +48,8 @@ class DragDrop extends Component {
           headers: headers
         }
       )
-      .then(function(response) {
-        console.log(response);
-        console.log(response.statusText);
+      .then(() => {
+        this.props.closeModal();
       })
       .catch(function(error) {
         console.log(error);
@@ -136,4 +140,19 @@ class DragDrop extends Component {
   }
 }
 
-export default DragDrop;
+function mapStateToProps(state) {
+  return {};
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    s3Actions: bindActionCreators(s3Actions, dispatch)
+  };
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DragDrop)
+);

@@ -25,16 +25,25 @@ class Uploads extends Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props !== nextProps) {
+      return true;
+    } else if (this.state !== nextState) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   componentDidMount() {
     this.props.s3Actions.fetchFiles();
   }
   handleOpenModal = () => {
-    console.log("this ran");
     this.setState({ showModal: true });
   };
 
   handleCloseModal = () => {
     this.setState({ showModal: false });
+    this.props.s3Actions.fetchFiles();
   };
 
   setSelectedFile = e => {
@@ -105,7 +114,7 @@ class Uploads extends Component {
             contentLabel="Example Modal"
           >
             <button onClick={() => this.handleCloseModal()}>close</button>
-            <DragDrop />
+            <DragDrop closeModal={() => this.handleCloseModal()} />
           </Modal>
         </div>
       </div>

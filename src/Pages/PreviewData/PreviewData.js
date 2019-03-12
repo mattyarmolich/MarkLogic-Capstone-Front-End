@@ -5,6 +5,8 @@ import CSVTable from "../../Components/CSV Visualize/csv_table";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as s3Actions from "../../utils/actions/s3Actions";
+import * as mlActions from "../../utils/actions/mlActions";
+
 import * as loadingActions from "../../utils/actions/loadingAction";
 import { Switch, Route, withRouter } from "react-router-dom";
 
@@ -28,6 +30,8 @@ class PreviewData extends Component {
 
   startClassifying = () => {
     this.props.loadingActions.setLoading(true);
+    var file = this.props.selected.file_names;
+    this.props.mlActions.startML(file);
     this.props.nextStep();
   };
   render() {
@@ -69,7 +73,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadingActions: bindActionCreators(loadingActions, dispatch)
+    loadingActions: bindActionCreators(loadingActions, dispatch),
+    mlActions: bindActionCreators(mlActions, dispatch)
   };
 }
 
