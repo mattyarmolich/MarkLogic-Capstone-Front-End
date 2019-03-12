@@ -27,7 +27,7 @@ class PreviewData extends Component {
   }
 
   startClassifying = () => {
-    console.log("setLoading");
+    this.props.loadingActions.setLoading(true);
     this.props.nextStep();
   };
   render() {

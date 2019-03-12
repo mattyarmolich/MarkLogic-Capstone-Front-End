@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import "./Loading.scss";
 import axios from "axios";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as s3Actions from "../../utils/actions/s3Actions";
+import * as loadingActions from "../../utils/actions/loadingAction";
+import { Switch, Route, withRouter } from "react-router-dom";
+
 class Loading extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +19,8 @@ class Loading extends Component {
     };
   }
 
-  componentWillReceiveProps() {
-    if (this.props.isActive) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isActive) {
       this.timeoutId = setTimeout(
         function() {
           this.setState({ icon1: true });
@@ -60,7 +66,7 @@ class Loading extends Component {
           </div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
-            {this.state.doneLoading ? (
+            {!this.props.loading ? (
               <button onClick={this.props.nextStep}>next</button>
             ) : (
               <div />
@@ -72,4 +78,19 @@ class Loading extends Component {
   }
 }
 
-export default Loading;
+function mapStateToProps(state) {
+  return {
+    loading: state.loading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {};
+}
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Loading)
+);
