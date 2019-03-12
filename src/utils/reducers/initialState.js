@@ -5,5 +5,6 @@ export default {
   s3: {
     selected: null
   },
-  files: []
+  files: [],
+  loading: false
 };

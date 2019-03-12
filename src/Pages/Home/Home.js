@@ -35,7 +35,6 @@ class Home extends Component {
         <Header />
         <StepWizard nav="" onStepChange={() => this.updateCounter()}>
           <Uploads />
-          <Loading />
           <PreviewData />
           <Loading />
           <ResultPage />

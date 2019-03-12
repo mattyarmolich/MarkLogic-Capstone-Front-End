@@ -5,6 +5,7 @@ import CSVTable from "../../Components/CSV Visualize/csv_table";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as s3Actions from "../../utils/actions/s3Actions";
+import * as loadingActions from "../../utils/actions/loadingAction";
 import { Switch, Route, withRouter } from "react-router-dom";
 
 class PreviewData extends Component {
@@ -25,6 +26,10 @@ class PreviewData extends Component {
     }
   }
 
+  startClassifying = () => {
+    console.log("setLoading");
+    this.props.nextStep();
+  };
   render() {
     return (
       <div className="PreviewData-container">
@@ -38,7 +43,7 @@ class PreviewData extends Component {
           </div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
-            <button onClick={this.props.nextStep}>next</button>
+            <button onClick={() => this.startClassifying()}>next</button>
           </div>
         </div>
       </div>
@@ -54,7 +59,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    loadingActions: bindActionCreators(loadingActions, dispatch)
+  };
 }
 
 export default withRouter(
