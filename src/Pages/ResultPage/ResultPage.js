@@ -350,13 +350,13 @@ class ResultPage extends Component {
           <ul className="player-card-container">
             {x.map((object, key) => (
               <li key={key} className="player-card-object">
-                <div>{object.id}</div>
-                <div>{object.first_name}</div>
-                <div>{object.last_name}</div>
-                <div>{object.email}</div>
-                <button onClick={() => this._downloadTxtFile(object)}>
-                  Download
-                </button>
+                {Object.keys(object).map(function(key) {
+                  return (
+                    <div value={key}>
+                      {key} : {object[key]}
+                    </div>
+                  );
+                })}
               </li>
             ))}
           </ul>
