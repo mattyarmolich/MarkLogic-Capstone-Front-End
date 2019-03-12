@@ -34,7 +34,14 @@ class PreviewData extends Component {
     return (
       <div className="PreviewData-container">
         <div className="preview-view">
-          <div className="Title-text">Data Preview</div>
+          <div className="Title-text">
+            <div>
+              Data Preview:
+              {this.props.selected && (
+                <div>{this.props.selected.file_names}</div>
+              )}
+            </div>
+          </div>
           <div className="player-card-container">
             {/* all you need to do here is get headers from csv as headers and the rest is data */}
             {/* <CSVTable headers={null} data={null} /> */}
@@ -42,8 +49,10 @@ class PreviewData extends Component {
             {/* ^ delete CSVTEST ^ */}
           </div>
           <div className="bottom-part">
-            <button onClick={this.props.previousStep}>previous</button>
-            <button onClick={() => this.startClassifying()}>next</button>
+            <button onClick={this.props.previousStep}>Back</button>
+            <button onClick={() => this.startClassifying()}>
+              Classify Data
+            </button>
           </div>
         </div>
       </div>
