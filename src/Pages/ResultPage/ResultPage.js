@@ -352,11 +352,16 @@ class ResultPage extends Component {
               <li key={key} className="player-card-object">
                 {Object.keys(object).map(function(key) {
                   return (
-                    <div value={key}>
-                      {key} : {object[key]}
+                    <div>
+                      <div>
+                        {key} : {object[key]}
+                      </div>
                     </div>
                   );
                 })}
+                <button onClick={() => this._downloadTxtFile(object)}>
+                  Download
+                </button>
               </li>
             ))}
           </ul>
