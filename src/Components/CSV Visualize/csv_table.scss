@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+input[type="text"] {
+  border-radius: 3px;
+    color: rgb(65, 64, 66);
+    font-size: 14px;
+    font-weight: 300;
+    height: 46px;
+    margin-bottom: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    outline: 0px;
+    width: 100%;
+    border: 0px;
+    background-color: rgb(230, 231, 232);
+}
+
+.btn {
+  background-color: #8dc63f;
+  font-size: 14px;
+  font-weight: 500;
+  height: 52px;
+  line-height: 20px;
+  padding: 0 4px;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  transition: all .3s ease 0s;
+}

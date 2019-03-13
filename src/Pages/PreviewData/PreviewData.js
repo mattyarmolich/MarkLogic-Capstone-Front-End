@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./PreviewData.scss";
 import CSVTEST from "../../csvtest";
+import axios from "axios";
+import Papa from "papaparse";
 import CSVTable from "../../Components/CSV Visualize/csv_table";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -13,6 +15,10 @@ import { Switch, Route, withRouter } from "react-router-dom";
 class PreviewData extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      parsedData: null
+    };
   }
 
   componentDidMount() {}
@@ -23,8 +29,17 @@ class PreviewData extends Component {
       this.props.selected !== null &&
       nextProps.isActive
     ) {
+      console.log("attempting download of links");
       console.log(this.props.selected.file_links);
-      //^ contains the s3 link, go ahead and download it and put it in the state and do whatever you need to do to it
+      Papa.parse(this.props.selected.file_links, {
+        download: true,
+        complete: function(results) {
+          console.log(results);
+          this.setState({
+            parseData: results
+          });
+        }
+      });
     }
   }
 
@@ -35,6 +50,7 @@ class PreviewData extends Component {
     this.props.nextStep();
   };
   render() {
+    console.log(this.state.parsedData);
     return (
       <div className="PreviewData-container">
         <div className="preview-view">
@@ -47,10 +63,19 @@ class PreviewData extends Component {
             </div>
           </div>
           <div className="player-card-container">
-            {/* all you need to do here is get headers from csv as headers and the rest is data */}
-            {/* <CSVTable headers={null} data={null} /> */}
-            <CSVTEST />
-            {/* ^ delete CSVTEST ^ */}
+            {/* {this.parseData.map((object, key) => (
+                <li key={key} className="player-card-object">
+                  {Object.keys(object).map(function(key) {
+                    return (
+                      <div>
+                        <div>
+                          {key} : {object[key]}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </li>
+              ))} */}
           </div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>Back</button>
