@@ -32,12 +32,11 @@ class PreviewData extends Component {
       var data = Papa.parse(this.props.selected.file_links, {
         header: true,
         download: true,
-        complete: function(results) {
-          console.log(results);
+        complete: results => {
+          console.log(results.data);
+          this.setState({ parseData: results.data });
         }
       });
-
-      this.setState({ parseData: data });
     }
   }
 
@@ -48,7 +47,7 @@ class PreviewData extends Component {
     this.props.nextStep();
   };
   render() {
-    console.log(this.state.parsedData);
+    console.log(this.state.parseData);
     return (
       <div className="PreviewData-container">
         <div className="preview-view">
@@ -61,8 +60,18 @@ class PreviewData extends Component {
             </div>
           </div>
           <div className="player-card-container">
-            display data here
-            {/* {this.state.parsedData} */}
+            {this.state.parseData &&
+              this.state.parseData.map((item, i) => (
+                <div key={i}>
+                  {Object.keys(item).map(function(key) {
+                    return (
+                      <div>
+                        {key} : {item[key]}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
           </div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>Back</button>

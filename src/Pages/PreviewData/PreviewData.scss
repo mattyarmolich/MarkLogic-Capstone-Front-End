@@ -12,8 +12,7 @@
   }
   .player-card-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     height: 90%;
     margin: 10px;
     border: 1px dashed black;
