@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./PreviewData.scss";
-import CSVTEST from "../../csvtest";
 import axios from "axios";
 import Papa from "papaparse";
-import CSVTable from "../../Components/CSV Visualize/csv_table";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as s3Actions from "../../utils/actions/s3Actions";
@@ -31,15 +29,15 @@ class PreviewData extends Component {
     ) {
       console.log("attempting download of links");
       console.log(this.props.selected.file_links);
-      Papa.parse(this.props.selected.file_links, {
+      var data = Papa.parse(this.props.selected.file_links, {
+        header: true,
         download: true,
         complete: function(results) {
           console.log(results);
-          this.setState({
-            parseData: results
-          });
         }
       });
+
+      this.setState({ parseData: data });
     }
   }
 
@@ -63,19 +61,8 @@ class PreviewData extends Component {
             </div>
           </div>
           <div className="player-card-container">
-            {/* {this.parseData.map((object, key) => (
-                <li key={key} className="player-card-object">
-                  {Object.keys(object).map(function(key) {
-                    return (
-                      <div>
-                        <div>
-                          {key} : {object[key]}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </li>
-              ))} */}
+            display data here
+            {/* {this.state.parsedData} */}
           </div>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>Back</button>
