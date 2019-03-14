@@ -58,6 +58,11 @@ export function receiveML() {
   };
 }
 
+export function dispatchFinal(final) {
+  console.log("dispatched");
+  return { type: types.RECEIVE_CLASSIFIER, data: final };
+}
+
 export function getFinalML() {
   var headers = {
     "Content-Type": "application/json",
@@ -74,6 +79,8 @@ export function getFinalML() {
       .then(res => {
         console.log("final classified data");
         console.log(res);
+        var fin = JSON.parse(res.data.data);
+        dispatch(dispatchFinal(fin));
       })
       .catch(err => console.log(err));
   };
