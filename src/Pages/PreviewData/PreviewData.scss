@@ -12,13 +12,19 @@
   }
   .player-card-container {
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: 90%;
     margin: 10px;
-    border: 1px dashed black;
+    list-style-type: none;
+    padding-left: 0px;
     border-radius: 4px;
     overflow-y: scroll;
-    overflow-x: scroll;
+  }
+
+  .data-list-item {
+      border: 1px dashed black;
+      width: 100%;
   }
   .bottom-part {
     display: flex;

@@ -59,10 +59,10 @@ class PreviewData extends Component {
               )}
             </div>
           </div>
-          <div className="player-card-container">
+          <ul className="player-card-container">
             {this.state.parseData &&
               this.state.parseData.map((item, i) => (
-                <div key={i}>
+                <li className="data-list-item" key={i}>
                   {Object.keys(item).map(function(key) {
                     return (
                       <div>
@@ -70,9 +70,9 @@ class PreviewData extends Component {
                       </div>
                     );
                   })}
-                </div>
+                </li>
               ))}
-          </div>
+          </ul>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>Back</button>
             <button onClick={() => this.startClassifying()}>
