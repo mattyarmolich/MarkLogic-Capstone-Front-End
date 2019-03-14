@@ -13,7 +13,6 @@ class ExportPage extends Component {
   }
 
   _downloadTxtFile = object => {
-    console.log("tjisasfaf");
     const fileData = JSON.stringify(object);
     const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);

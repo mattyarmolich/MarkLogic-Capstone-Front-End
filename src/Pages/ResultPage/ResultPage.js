@@ -29,7 +29,25 @@ class ResultPage extends Component {
       <div className="result-container">
         <div className="results-view">
           <div className="Title-text">Results</div>
-          <ul className="player-card-container" />
+          <ul className="player-card-container">
+            {this.props.classified &&
+              this.props.classified.map((object, key) => (
+                <li key={key} className="player-card-object">
+                  {Object.keys(object).map(function(key) {
+                    return (
+                      <div>
+                        <div>
+                          {key} : {object[key]}
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <button onClick={() => this._downloadTxtFile(object)}>
+                    Download
+                  </button>
+                </li>
+              ))}
+          </ul>
           <div className="bottom-part">
             <button onClick={this.props.previousStep}>previous</button>
             <button onClick={this.props.nextStep}>next</button>
