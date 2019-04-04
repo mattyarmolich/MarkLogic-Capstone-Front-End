@@ -40,6 +40,7 @@ class Home extends Component {
           <ResultPage />
           <ExportPage />
         </StepWizard>
+        <a href="google.com">Privacy Policy</a>
       </div>
     );
   }

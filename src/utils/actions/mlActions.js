@@ -2,7 +2,7 @@ import * as types from "./actionTypes";
 import axios from "axios";
 import { setLoading } from "./loadingAction";
 import { connect } from "react-redux";
-
+import ec2URL from "../urlAssets";
 export function startML(fileName) {
   var headers = {
     "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export function startML(fileName) {
 
   return dispatch => {
     axios({
-      url: "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/ml/start",
+      url: ec2URL + "/ml/start",
       method: "POST",
       headers: headers,
       data: {
@@ -37,7 +37,7 @@ export function receiveML() {
   console.log("polling");
   return dispatch => {
     axios({
-      url: "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/ml/status",
+      url: ec2URL + "/ml/status",
       method: "GET",
       headers: headers
     })
@@ -71,14 +71,11 @@ export function getFinalML() {
 
   return dispatch => {
     axios({
-      url:
-        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/ml/classified",
+      url: ec2URL + "/ml/classified",
       method: "GET",
       headers: headers
     })
       .then(res => {
-        console.log("final classified data");
-        console.log(res);
         var fin = JSON.parse(res.data.data);
         dispatch(dispatchFinal(fin));
       })

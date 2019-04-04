@@ -55,13 +55,13 @@ class Loading extends Component {
           <div className="Title-text">Loading</div>
           <div>
             <div className={this.state.icon1 ? "active-show" : "inactive"}>
-              Classifying Data
+              Loading Data
             </div>
             <div className={this.state.icon2 ? "active-show" : "inactive"}>
-              Slapping Jake
+              Formatting Data
             </div>
             <div className={this.state.icon3 ? "active-show" : "inactive"}>
-              Getting Bread
+              Classifying Data
             </div>
           </div>
           <div className="bottom-part">

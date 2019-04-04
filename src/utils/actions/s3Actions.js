@@ -1,5 +1,7 @@
 import * as types from "./actionTypes";
 import axios from "axios";
+import ec2URL from "../urlAssets";
+
 export function receiveFiles(json) {
   return { type: types.RECEIVE_FILES, authentication: json };
 }
@@ -12,8 +14,7 @@ export function fetchFiles(user, pass) {
 
   return dispatch => {
     axios({
-      url:
-        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/s3/file_list",
+      url: ec2URL + "/s3/file_list",
       method: "GET",
       headers: headers
     })

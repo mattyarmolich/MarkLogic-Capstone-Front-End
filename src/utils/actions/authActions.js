@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 import axios from "axios";
+import ec2URL from "../urlAssets";
 export function receiveAuth(json) {
   return { type: types.RECEIVE_AUTH, authentication: json };
 }
@@ -7,8 +8,7 @@ export function receiveAuth(json) {
 export function fetchAuth(user, pass) {
   return dispatch => {
     axios({
-      url:
-        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/users/login",
+      url: ec2URL + "/users/login",
       method: "POST",
       json: true,
       data: {
@@ -29,8 +29,7 @@ export function fetchAuth(user, pass) {
 export function registerAuth(user, pass) {
   return dispatch => {
     axios({
-      url:
-        "http://ec2-54-213-224-0.us-west-2.compute.amazonaws.com/users/register",
+      url: ec2URL + "/users/register",
       method: "POST",
       json: true,
       data: {
