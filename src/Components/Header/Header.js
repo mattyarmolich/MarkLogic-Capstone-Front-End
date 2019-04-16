@@ -12,11 +12,10 @@ class Header extends Component {
       "Content-Type": "application/json",
       Authorization: "Bearer " + sessionStorage.getItem("token")
     };
-    console.log(sessionStorage.getItem("token"));
     axios
       .post(EC2Link + "/users/logout", "", { headers: headers })
       .then(function(response) {
-        console.log(response);
+        alert(response.data.message);
       })
       .catch(function(error) {
         console.log(error);

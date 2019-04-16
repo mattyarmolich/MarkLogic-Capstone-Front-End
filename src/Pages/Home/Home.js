@@ -12,7 +12,8 @@ class Home extends Component {
     super(props);
     this.fileInput = React.createRef();
     this.state = {
-      currentStep: 0
+      currentStep: 0,
+      type: 1
     };
   }
 
@@ -28,17 +29,22 @@ class Home extends Component {
     });
   };
 
+  passSpecific() {
+    return (
+      <StepWizard nav="" onStepChange={() => this.updateCounter()}>
+        <Uploads />
+        <PreviewData />
+        <Loading />
+        <ResultPage />
+        <ExportPage />
+      </StepWizard>
+    );
+  }
   render() {
     return (
       <div className="home-container">
         <Header />
-        <StepWizard nav="" onStepChange={() => this.updateCounter()}>
-          <Uploads />
-          <PreviewData />
-          <Loading />
-          <ResultPage />
-          <ExportPage />
-        </StepWizard>
+        {this.state.type === 1 ? this.passSpecific() : <div>Null</div>}
         <div className="footer">
           <div>
             Privacy policy
