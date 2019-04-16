@@ -14,7 +14,11 @@ class Details extends Component {
   componentDidMount() {}
 
   render() {
-    return <div className="details-container">Details</div>;
+    return (
+      <div className="details-container">
+        <div>Details</div>
+      </div>
+    );
   }
 }
 
