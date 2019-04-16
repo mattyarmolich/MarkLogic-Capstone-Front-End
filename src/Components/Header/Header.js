@@ -29,9 +29,7 @@ class Header extends Component {
         <div className="header">
           <div className="navigation">
             <div className="spacer" />
-            <NavLink className="navigation-link" to="/Home">
-              Home
-            </NavLink>
+            <div className="navigation-link">Current Step: View Files</div>
           </div>
           <div className="dropdown-container">
             <div className="dropdown">

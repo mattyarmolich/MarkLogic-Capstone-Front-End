@@ -17,7 +17,8 @@ class ExportPage extends Component {
     const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.download = "tempFile.json";
+    link.download =
+      this.props.fileName.file_names.split(".")[0] + "classified.csv";
     link.href = url;
     link.click();
   };
@@ -50,7 +51,8 @@ class ExportPage extends Component {
 function mapStateToProps(state) {
   console.log(state.ml.classification);
   return {
-    classified: state.ml.classification
+    classified: state.ml.classification,
+    fileName: state.s3.selected
   };
 }
 

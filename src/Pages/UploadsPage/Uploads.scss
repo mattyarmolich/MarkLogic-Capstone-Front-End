@@ -53,7 +53,19 @@
     margin-top: 20px
   }
   .upload-button {
+    margin: 12px;
+    width: 25%;
+    border: 1px dashed gray;
+    outline: none;
+  }
 
+  .next {
+    margin: 12px;
+    width: 25%;
+  }
+  .info-message {
+    font-size: 8px;
+    margin: 12px;
   }
   .uploads-view {
     display: flex;
