@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Header.scss";
 import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
-
+import EC2Link from "../../utils/urlAssets";
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ class Header extends Component {
     };
     console.log(sessionStorage.getItem("token"));
     axios
-      .post("http://54.218.72.52/users/logout", "", { headers: headers })
+      .post(EC2Link + "/users/logout", "", { headers: headers })
       .then(function(response) {
         console.log(response);
       })

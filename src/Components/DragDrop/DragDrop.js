@@ -61,6 +61,10 @@ class DragDrop extends Component {
     let fileUploads = this.state.filesToUpload;
     for (var i = 0; i < files.length; i++) {
       if (!files[i].name) return;
+      if (files[i].name.split(".")[1] !== "csv") {
+        alert("Please drag in a CSV file in order to classify data");
+        return;
+      }
       fileList.push(files[i].name);
       fileUploads.push(files[i]);
     }
