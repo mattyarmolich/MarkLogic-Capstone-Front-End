@@ -23,7 +23,6 @@ class Home extends Component {
   }
 
   updateCounter = () => {
-    console.log(this.props.currentStep);
     this.setState({
       currentStep: this.props.currentStep
     });
@@ -47,7 +46,7 @@ class Home extends Component {
           </div>
           <div>
             Found an issue? log here
-            <a href="http://www.google.com">Link</a>
+            <a href="https://teammark.feedbear.com/">Link</a>
           </div>
         </div>
       </div>
