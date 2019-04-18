@@ -48,7 +48,9 @@ class Home extends Component {
         <div className="footer">
           <div>
             Privacy policy
-            <a href="google.com">Privacy Policy</a>
+            <a href="https://geraldomacias.github.io/MarkLogic/privacy_policy.html">
+              Privacy Policy
+            </a>
           </div>
           <div>
             Found an issue? log here
