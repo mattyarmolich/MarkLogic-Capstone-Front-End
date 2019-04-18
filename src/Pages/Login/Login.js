@@ -147,12 +147,10 @@ function SignIn(props) {
   return (
     <main className={classes.main}>
       <CssBaseline />
+      <img className="logo" src={logo} />
       <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
+        <Typography component="h1" variant="h6">
+          MarkLogic Classifier
         </Typography>
         <form className={classes.form}>
           <FormControl margin="normal" required fullWidth>
