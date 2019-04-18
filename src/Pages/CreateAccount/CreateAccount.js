@@ -9,7 +9,21 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as authActions from "../../utils/actions/authActions";
 
-import { withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import FormControl from "@material-ui/core/FormControl";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import withStyles from "@material-ui/core/styles/withStyles";
+
 class CreateAccount extends Component {
   constructor(props) {
     super(props);
@@ -45,21 +59,36 @@ class CreateAccount extends Component {
   render() {
     return (
       <div className="create-account-container">
-        <input
-          placeholder="email"
-          className="login"
-          onChange={e => this.setEmail(e)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          className="login"
-          onChange={e => this.setPassword(e)}
-        />
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="email">Email Address</InputLabel>
+          <Input
+            id="email"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={e => this.onChange(e)}
+          />
+        </FormControl>
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <Input
+            name="password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={e => this.onChange(e)}
+          />
+        </FormControl>
 
-        <button onClick={e => this.submitCreds(e)} className="register">
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={() => this.onSubmit()}
+        >
           Register
-        </button>
+        </Button>
 
         <div className="footer">
           Already have an Account?

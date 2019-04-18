@@ -93,40 +93,54 @@ class Login extends Component {
     this.props.authActions.fetchAuth(this.state.email, this.state.password);
   };
 
-  // render() {
-  //   return (
-  //     <div className="login-container">
-  //       <img className="logo" src={logo} />
+  render() {
+    return (
+      <div className="login-container">
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="email">Email Address</InputLabel>
+          <Input
+            id="email"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={e => this.onChange(e)}
+          />
+        </FormControl>
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <Input
+            name="password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={e => this.onChange(e)}
+          />
+        </FormControl>
+        <FormControlLabel
+          control={<Checkbox value="remember" color="primary" />}
+          label="Remember me"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={() => this.onSubmit()}
+        >
+          Sign in
+        </Button>
 
-  //       <input
-  //         id="email"
-  //         placeholder="Email"
-  //         className="login"
-  //         onChange={e => this.onChange(e)}
-  //       />
-  //       <input
-  //         type="password"
-  //         id="password"
-  //         placeholder="Password"
-  //         className="login"
-  //         onChange={e => this.onChange(e)}
-  //       />
-
-  //       <button to="/Home" className="submit" onClick={() => this.onSubmit()}>
-  //         <div className="login-text">Submit</div>
-  //       </button>
-
-  //       <div className="footer">
-  //         {"Dont have an account? "}
-  //         <Link to="/CreateAccount">Sign Up</Link>
-  //       </div>
-  //       <div className="footer">
-  //         {"Forgot your password? "}
-  //         <Link to="/ResetPassword">Link</Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+        <div className="footer">
+          {"Dont have an account? "}
+          <Link to="/CreateAccount">Sign Up</Link>
+        </div>
+        <div className="footer">
+          {"Forgot your password? "}
+          <Link to="/ResetPassword">Link</Link>
+        </div>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
@@ -191,7 +205,7 @@ SignIn.propTypes = {
 };
 
 export default withRouter(
-  withStyles(styles)(SignIn),
+  // withStyles(styles)(SignIn)
   connect(
     mapStateToProps,
     mapDispatchToProps
