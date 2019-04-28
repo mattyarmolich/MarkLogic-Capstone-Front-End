@@ -6,6 +6,18 @@
   align-items: center;
 }
 
+.path-selection {
+  width: 75%;
+    display: flex;
+    color: black;
+    margin-top: 5%;
+    align-items: center;
+    height: 100%;
+    background-color: white;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .drag-container{
    justify-content: center;
    align-items: center;

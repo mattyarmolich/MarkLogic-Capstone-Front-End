@@ -29,7 +29,7 @@ class Header extends Component {
         <div className="header">
           <div className="navigation">
             <div className="spacer" />
-            <div className="navigation-link">Current Step: View Files</div>
+            <div className="navigation-link">Back To Home</div>
           </div>
           <div className="dropdown-container">
             <div className="dropdown">
