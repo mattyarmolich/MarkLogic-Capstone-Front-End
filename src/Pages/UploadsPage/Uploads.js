@@ -100,9 +100,14 @@ class Uploads extends Component {
               Upload New File
             </button>
             {this.props.selected ? (
-              <button className="next" onClick={e => this.nextStep(e)}>
-                Proceed
-              </button>
+              <div className="button-container">
+                <button className="next" onClick={e => this.nextStep(e)}>
+                  Proceed
+                </button>
+                <button className="next" onClick={e => this.nextStep(e)}>
+                  Delete
+                </button>
+              </div>
             ) : (
               <div className="info-message">Select a file to proceed</div>
             )}

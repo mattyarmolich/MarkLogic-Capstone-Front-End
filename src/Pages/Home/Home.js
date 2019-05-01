@@ -52,21 +52,33 @@ class Home extends Component {
     return (
       <StepWizard nav="" onStepChange={() => this.updateCounter()}>
         <PastQueries />
-        <ResultPage />
+        <Loading />
       </StepWizard>
     );
   }
 
+  returnState = input => {
+    this.setState({
+      type: input
+    });
+  };
   render() {
     return (
       <div className="home-container">
-        <Header />
+        <Header changeState={e => this.returnState(e)} />
         {this.state.type === 0 ? (
-          <div className="path-selection">
-            <button onClick={e => this.setType(1)}>Upload New</button>
-            <button onClick={e => this.setType(2)}>
-              See Past Classifications
-            </button>
+          <div className="pick-container">
+            <div className="header-text">
+              Pick What Type of Operation you'd like to do
+            </div>
+            <div className="path-selection">
+              <button className="type-button" onClick={e => this.setType(1)}>
+                Upload New
+              </button>
+              <button className="type-button" onClick={e => this.setType(2)}>
+                See Past Classifications
+              </button>
+            </div>
           </div>
         ) : (
           <React.Fragment />

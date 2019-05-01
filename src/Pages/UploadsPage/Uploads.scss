@@ -59,9 +59,12 @@
     outline: none;
   }
 
+  .button-container {
+    width: 100%;
+  }
   .next {
     margin: 12px;
-    width: 25%;
+    width: 50%;
   }
   .info-message {
     font-size: 8px;

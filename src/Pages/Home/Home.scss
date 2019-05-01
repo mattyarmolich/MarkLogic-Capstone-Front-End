@@ -6,14 +6,35 @@
   align-items: center;
 }
 
-.path-selection {
+.pick-container {
   width: 75%;
+  height: 75vh;
+  margin-top: 5%;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+
+  .header-text {
+    margin: 12px;
+  }
+
+  .type-button {
+    width: 25%;
+    height: 3em;
+    margin: 12px;
+    align-self: center;
+    justify-content: center;
+  }
+}
+.path-selection {
+
     display: flex;
     color: black;
-    margin-top: 5%;
+
     align-items: center;
-    height: 100%;
-    background-color: white;
+
+
     justify-content: center;
     flex-direction: column;
 }

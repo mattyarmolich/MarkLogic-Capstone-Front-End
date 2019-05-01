@@ -29,7 +29,12 @@ class Header extends Component {
         <div className="header">
           <div className="navigation">
             <div className="spacer" />
-            <div className="navigation-link">Back To Home</div>
+            <div
+              className="navigation-link"
+              onClick={e => this.props.changeState(0)}
+            >
+              Back To Home
+            </div>
           </div>
           <div className="dropdown-container">
             <div className="dropdown">
