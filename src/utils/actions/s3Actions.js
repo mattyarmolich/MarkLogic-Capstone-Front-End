@@ -45,6 +45,25 @@ export function fetchPast(user, pass) {
   };
 }
 
+export function deleteFile(user, pass) {
+  var headers = {
+    "Content-Type": "application/json",
+    Authorization: "Bearer " + sessionStorage.getItem("token")
+  };
+
+  return dispatch => {
+    axios({
+      url: ec2URL + "/s3/deleteFile",
+      method: "GET",
+      headers: headers
+    })
+      .then(res => {
+        dispatch(receiveFiles(res));
+      })
+      .catch(err => console.log(err));
+  };
+}
+
 export function setActiveFile(file) {
   return { type: types.SET_SELECTED, file: file };
 }
