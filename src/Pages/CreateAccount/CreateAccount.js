@@ -66,7 +66,7 @@ class CreateAccount extends Component {
             name="email"
             autoComplete="email"
             autoFocus
-            onChange={e => this.onChange(e)}
+            onChange={e => this.setEmail(e)}
           />
         </FormControl>
         <FormControl margin="normal" required fullWidth>
@@ -76,7 +76,7 @@ class CreateAccount extends Component {
             type="password"
             id="password"
             autoComplete="current-password"
-            onChange={e => this.onChange(e)}
+            onChange={e => this.setPassword(e)}
           />
         </FormControl>
 
@@ -85,7 +85,8 @@ class CreateAccount extends Component {
           fullWidth
           variant="contained"
           color="primary"
-          onClick={() => this.onSubmit()}
+          onClick={e => this.submitCreds(e)}
+          className="register"
         >
           Register
         </Button>

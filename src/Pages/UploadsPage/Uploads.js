@@ -8,6 +8,13 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as s3Actions from "../../utils/actions/s3Actions";
 import { Switch, Route, withRouter } from "react-router-dom";
+import {
+  Table,
+  TableHead,
+  TableCell,
+  TableBody,
+  TableRow
+} from "@material-ui/core";
 
 if (process.env.NODE_ENV !== "test") {
   Modal.setAppElement("#root");
@@ -90,6 +97,22 @@ class Uploads extends Component {
                     {i}) {item.file_names}
                   </li>
                 ))}
+
+              <Table className="table">
+                <TableHead>
+                  <TableCell> test</TableCell>
+                </TableHead>
+              </Table>
+              <TableBody>
+                {this.props.files &&
+                  this.props.files.map(n => (
+                    <TableRow key={n.id}>
+                      <TableCell component="th" scope="row">
+                        {n.name}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
             </ul>
           </div>
           <div className="bottom-part">
