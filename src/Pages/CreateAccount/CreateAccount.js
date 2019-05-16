@@ -27,7 +27,15 @@ class CreateAccount extends Component {
   }
 
   submitCreds = e => {
-    this.props.authActions.registerAuth(this.state.email, this.state.password);
+    if (/\S+@\S+\.\S+/.test(this.state.email)) {
+      this.props.authActions.registerAuth(
+        this.state.email,
+        this.state.password
+      );
+    } else {
+      alert("Invalid email address");
+      return;
+    }
   };
 
   setEmail = event => {
@@ -74,6 +82,10 @@ function mapStateToProps(state) {
   return {
     authentication: state.credentials
   };
+}
+
+function emailIsValid(email) {
+  return /\S+@\S+\.\S+/.test(email);
 }
 
 function mapDispatchToProps(dispatch) {
