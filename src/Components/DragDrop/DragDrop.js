@@ -59,12 +59,19 @@ class DragDrop extends Component {
   handleFileDrop = files => {
     let fileList = this.state.files;
     let fileUploads = this.state.filesToUpload;
+    console.log("FILE DROP");
     for (var i = 0; i < files.length; i++) {
       if (!files[i].name) return;
       if (files[i].name.split(".")[1] !== "csv") {
         alert("Please drag in a CSV file in order to classify data");
         return;
       }
+
+      // if (/* WHAT SHOULD GO HERE ????*/ super.props.files.includes(files[i].name)) {
+      //   alert("A file named: \"" + files[i].name + "\" has already been uploaded.")
+      //   return
+      // }
+
       fileList.push(files[i].name);
       fileUploads.push(files[i]);
     }
@@ -143,6 +150,18 @@ class DragDrop extends Component {
     );
   }
 }
+
+// function hasDuplicates(array) {
+//   var valuesSoFar = Object.create(null);
+//   for (var i = 0; i < array.length; ++i) {
+//       var value = array[i];
+//       if (value in valuesSoFar) {
+//           return true;
+//       }
+//       valuesSoFar[value] = true;
+//   }
+//   return false;
+// }
 
 function mapStateToProps(state) {
   return {};
