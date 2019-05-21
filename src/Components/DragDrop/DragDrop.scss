@@ -18,6 +18,16 @@
     z-index: 9999;
   }
 
+  .button-style {
+    border-radius: 4px;
+    align-self: center;
+    margin-top: 6px;
+    color: black;
+    height: 15%;
+    font-size: 14px;
+    width:20%;
+  }
+
   .drop-zone {
     position: absolute;
     top: 50%;

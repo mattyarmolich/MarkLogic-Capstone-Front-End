@@ -74,8 +74,13 @@ class PreviewData extends Component {
               ))}
           </ul>
           <div className="bottom-part">
-            <button onClick={this.props.previousStep}>Back</button>
-            <button onClick={() => this.startClassifying()}>
+            <button className="button-style" onClick={this.props.previousStep}>
+              Back
+            </button>
+            <button
+              className="button-style"
+              onClick={() => this.startClassifying()}
+            >
               Classify Data
             </button>
           </div>

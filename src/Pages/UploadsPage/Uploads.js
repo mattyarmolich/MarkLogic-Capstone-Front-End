@@ -91,11 +91,14 @@ class Uploads extends Component {
                   </li>
                 ))}
             </ul>
-          </div>
-          <div className="bottom-part">
-            <button onClick={() => this.handleOpenModal()}>
+            <button
+              className="button-style"
+              onClick={() => this.handleOpenModal()}
+            >
               Upload New File
             </button>
+          </div>
+          <div className="bottom-part">
             {this.props.selected ? (
               <div className="button-container">
                 <button className="next" onClick={e => this.nextStep(e)}>

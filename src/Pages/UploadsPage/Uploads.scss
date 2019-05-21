@@ -53,10 +53,24 @@
     margin-top: 20px
   }
   .upload-button {
-    margin: 12px;
-    width: 25%;
-    border: 1px dashed gray;
-    outline: none;
+    width: 50%;
+    margin: 10px;
+    align-self: center;
+    background-color: #E0E1DD;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    padding:6px;
+  }
+
+  .button-style {
+    border-radius: 4px;
+    align-self: center;
+    margin-top: 6px;
+    color: black;
+    font-size: 14px;
+    height: 10%;
+    width:20%;
   }
 
   .button-container {
@@ -64,10 +78,16 @@
   }
   .next {
     margin: 12px;
-    width: 50%;
+    width: 40%;
+    border-radius: 4px;
+    align-self: center;
+    margin-top: 6px;
+    color: black;
+    font-size: 14px;
+    height: 20%;
   }
   .info-message {
-    font-size: 8px;
+    font-size: 20px;
     margin: 12px;
   }
   .uploads-view {
