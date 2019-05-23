@@ -104,7 +104,10 @@ class Uploads extends Component {
                 <button className="next" onClick={e => this.nextStep(e)}>
                   Proceed
                 </button>
-                <button className="next" onClick={e => this.nextStep(e)}>
+                <button
+                  className="next"
+                  onClick={e => console.log("DELETE FILE")}
+                >
                   Delete
                 </button>
               </div>
