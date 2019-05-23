@@ -16,12 +16,14 @@
     width: 100%;
     border-radius: 5px;
     margin-bottom: 6px;
+    
   }
 
   .login-text {
     color:black;
     text-align: center;
   }
+  
   .logo {
     width: 20%;
     height: auto;
@@ -48,13 +50,14 @@
 
 
   .submit {
+    width: 50%;
+    margin: 10px;
     align-self: center;
-    margin-top: 6px;
-    color: white;
-    height: 5%;
-    width:30%;
-    outline: none;
+    background-color: #E0E1DD;
     border: none;
+    border-radius: 8px;
+    text-align: center;
+    padding:6px;
   }
 
   .submit:active {

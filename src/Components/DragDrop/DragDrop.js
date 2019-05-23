@@ -60,6 +60,7 @@ class DragDrop extends Component {
     let fileList = this.state.files;
     let fileUploads = this.state.filesToUpload;
     console.log("FILE DROP");
+    console.log(this.state.fileList);
     for (var i = 0; i < files.length; i++) {
       if (!files[i].name) return;
       if (files[i].name.split(".")[1] !== "csv") {
@@ -67,7 +68,7 @@ class DragDrop extends Component {
         return;
       }
 
-      // if (/* WHAT SHOULD GO HERE ????*/ super.props.files.includes(files[i].name)) {
+      // if (this.state.fileList.includes(files[i].name)) {
       //   alert("A file named: \"" + files[i].name + "\" has already been uploaded.")
       //   return
       // }
@@ -134,7 +135,7 @@ class DragDrop extends Component {
             ))}
           </div>
         ) : (
-          <div>no files uploaded</div>
+          <div> Drop files here</div>
         )}
 
         {this.state.dragging && (
@@ -144,8 +145,10 @@ class DragDrop extends Component {
             </div>
           </div>
         )}
-        <button onClick={e => this.submitFile(e)}>submit</button>
         <div> {Math.round(this.state.loaded, 2)} %</div>
+        <button className="button-style" onClick={e => this.submitFile(e)}>
+          submit
+        </button>
       </div>
     );
   }
