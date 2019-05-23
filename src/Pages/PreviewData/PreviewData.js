@@ -29,14 +29,17 @@ class PreviewData extends Component {
     ) {
       console.log("attempting download of links");
       console.log(this.props.selected.file_links);
-      var data = Papa.parse(this.props.selected.file_links, {
-        header: true,
-        download: true,
-        complete: results => {
-          console.log(results.data);
-          this.setState({ parseData: results.data });
+      var data = Papa.parse(
+        "https://cors-anywhere.herokuapp.com/" + this.props.selected.file_links,
+        {
+          header: true,
+          download: true,
+          complete: results => {
+            console.log(results.data);
+            this.setState({ parseData: results.data });
+          }
         }
-      });
+      );
     }
   }
 

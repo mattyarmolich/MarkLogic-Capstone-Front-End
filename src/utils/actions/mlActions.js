@@ -59,7 +59,6 @@ export function receiveML() {
 }
 
 export function dispatchFinal(final) {
-  console.log("dispatched");
   return { type: types.RECEIVE_CLASSIFIER, data: final };
 }
 
