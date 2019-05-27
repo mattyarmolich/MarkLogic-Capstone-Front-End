@@ -40,7 +40,7 @@ class Header extends Component {
             <div className="dropdown">
               <button className="dropbtn">Account</button>
               <div className="dropdown-content">
-                <Link to="/Details">Details</Link>
+                {/* <Link to="/Details">Details</Link> */}
                 <Link onClick={() => this.logout()} to="/">
                   Logout
                 </Link>
