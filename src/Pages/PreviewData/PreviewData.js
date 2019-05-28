@@ -30,17 +30,22 @@ class PreviewData extends Component {
     ) {
       console.log("attempting download of links");
       console.log(this.props.selected.file_links);
-      var data = Papa.parse(
-        "https://cors-anywhere.herokuapp.com/" + this.props.selected.file_links,
-        {
-          header: true,
-          download: true,
-          complete: results => {
-            console.log(results.data);
-            this.setState({ parseData: results.data, canAdvance: true });
-          }
+
+      var fileLink;
+      if (this.props.selected.file_links) {
+        fileLink = this.props.selected.file_links;
+      } else {
+        fileLink = this.props.selected.classified_links;
+      }
+
+      var data = Papa.parse("https://cors-anywhere.herokuapp.com/" + fileLink, {
+        header: true,
+        download: true,
+        complete: results => {
+          console.log(results);
+          this.setState({ parseData: results.data, canAdvance: true });
         }
-      );
+      });
     }
   }
 
@@ -81,7 +86,7 @@ class PreviewData extends Component {
             <button className="button-style" onClick={this.props.previousStep}>
               Back
             </button>
-            {this.state.canAdvance ? (
+            {this.state.canAdvance && !this.props.isPast ? (
               <button
                 className="button-style"
                 onClick={() => this.startClassifying()}

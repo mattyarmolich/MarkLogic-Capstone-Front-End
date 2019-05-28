@@ -52,7 +52,7 @@ class Home extends Component {
     return (
       <StepWizard nav="" onStepChange={() => this.updateCounter()}>
         <PastQueries />
-        <PreviewData />
+        <PreviewData isPast={true} />
       </StepWizard>
     );
   }
