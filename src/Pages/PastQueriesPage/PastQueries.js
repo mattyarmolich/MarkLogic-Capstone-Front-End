@@ -29,6 +29,23 @@ class PastQueries extends Component {
       return false;
     }
   }
+
+  deleteSelected = e => {
+    if (this.state.selectedFile !== null) {
+      var y = document.getElementById(this.state.selectedFile.id);
+      if (y !== null) {
+        y.classList.remove("active-item");
+      }
+    }
+
+    console.log("below");
+    console.log(this.props.files[this.state.selectedFile.id]);
+    this.props.s3Actions.deleteClassified(
+      this.props.files[this.state.selectedFile.id].classified_names
+    );
+    this.props.s3Actions.setActiveFile(null);
+  };
+
   componentDidMount() {
     this.props.s3Actions.fetchPast();
   }
@@ -89,9 +106,14 @@ class PastQueries extends Component {
           </div>
           <div className="bottom-part">
             {this.props.selected ? (
-              <button className="next" onClick={e => this.nextStep(e)}>
-                Proceed
-              </button>
+              <div className="button-container">
+                <button className="next" onClick={e => this.nextStep(e)}>
+                  Proceed
+                </button>
+                <button className="next" onClick={e => this.deleteSelected(e)}>
+                  Delete
+                </button>
+              </div>
             ) : (
               <div className="info-message">Select a file to proceed</div>
             )}

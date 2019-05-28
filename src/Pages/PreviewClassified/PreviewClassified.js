@@ -47,10 +47,10 @@ class PreviewClassified extends Component {
         }
       })
         .then(res => {
-          console.log(res.data);
-          // this.setState({
-          //   parseData: res.data
-          // })
+          console.log(res.data.data);
+          this.setState({
+            parseData: JSON.parse(res.data.data)
+          });
         })
         .catch(err => {
           console.log(err);

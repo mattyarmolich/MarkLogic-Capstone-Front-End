@@ -74,6 +74,35 @@ export function deleteFile(file) {
   };
 }
 
+export function deleteClassified(file) {
+  const formData = new FormData();
+  formData.append("file1", file);
+  var headers = {
+    "Content-Type": "application/json",
+    Authorization: "Bearer " + sessionStorage.getItem("token")
+  };
+  var body = {
+    file1: file
+  };
+  console.log(body);
+
+  return dispatch => {
+    axios({
+      url: ec2URL + "/s3/deleteFileClassified",
+      method: "POST",
+      headers: headers,
+      data: formData
+    })
+      .then(res => {
+        dispatch(fetchPast());
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(fetchPast());
+      });
+  };
+}
+
 export function setActiveFile(file) {
   return { type: types.SET_SELECTED, file: file };
 }
