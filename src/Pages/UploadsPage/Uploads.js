@@ -46,6 +46,21 @@ class Uploads extends Component {
     this.props.s3Actions.fetchFiles();
   };
 
+  deleteSelected = e => {
+    if (this.state.selectedFile !== null) {
+      var y = document.getElementById(this.state.selectedFile.id);
+      if (y !== null) {
+        y.classList.remove("active-item");
+      }
+    }
+
+    console.log("below");
+    console.log(this.props.files[this.state.selectedFile.id]);
+    this.props.s3Actions.deleteFile(
+      this.props.files[this.state.selectedFile.id].file_names
+    );
+    this.props.s3Actions.setActiveFile(null);
+  };
   setSelectedFile = e => {
     if (this.state.selectedFile !== null) {
       var y = document.getElementById(this.state.selectedFile.id);
@@ -104,10 +119,7 @@ class Uploads extends Component {
                 <button className="next" onClick={e => this.nextStep(e)}>
                   Proceed
                 </button>
-                <button
-                  className="next"
-                  onClick={e => console.log("DELETE FILE")}
-                >
+                <button className="next" onClick={e => this.deleteSelected(e)}>
                   Delete
                 </button>
               </div>

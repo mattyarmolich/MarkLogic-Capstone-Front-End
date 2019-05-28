@@ -45,22 +45,32 @@ export function fetchPast(user, pass) {
   };
 }
 
-export function deleteFile(user, pass) {
+export function deleteFile(file) {
+  const formData = new FormData();
+  formData.append("file1", file);
   var headers = {
     "Content-Type": "application/json",
     Authorization: "Bearer " + sessionStorage.getItem("token")
   };
+  var body = {
+    file1: file
+  };
+  console.log(body);
 
   return dispatch => {
     axios({
-      url: ec2URL + "/s3/deleteFile",
-      method: "GET",
-      headers: headers
+      url: ec2URL + "/s3/deleteFileOriginal",
+      method: "POST",
+      headers: headers,
+      data: formData
     })
       .then(res => {
-        dispatch(receiveFiles(res));
+        dispatch(fetchFiles(res));
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        dispatch(fetchFiles());
+      });
   };
 }
 

@@ -15,7 +15,8 @@ class PreviewData extends Component {
     super(props);
 
     this.state = {
-      parsedData: null
+      parsedData: null,
+      canAdvance: false
     };
   }
 
@@ -36,7 +37,7 @@ class PreviewData extends Component {
           download: true,
           complete: results => {
             console.log(results.data);
-            this.setState({ parseData: results.data });
+            this.setState({ parseData: results.data, canAdvance: true });
           }
         }
       );
@@ -80,12 +81,16 @@ class PreviewData extends Component {
             <button className="button-style" onClick={this.props.previousStep}>
               Back
             </button>
-            <button
-              className="button-style"
-              onClick={() => this.startClassifying()}
-            >
-              Classify Data
-            </button>
+            {this.state.canAdvance ? (
+              <button
+                className="button-style"
+                onClick={() => this.startClassifying()}
+              >
+                Classify Data
+              </button>
+            ) : (
+              <React.Fragment />
+            )}
           </div>
         </div>
       </div>

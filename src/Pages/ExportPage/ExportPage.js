@@ -49,7 +49,6 @@ class ExportPage extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.ml.classification);
   return {
     classified: state.ml.classification,
     fileName: state.s3.selected
