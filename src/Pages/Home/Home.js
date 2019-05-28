@@ -7,8 +7,9 @@ import ResultPage from "../ResultPage/ResultPage";
 import ExportPage from "../ExportPage/ExportPage";
 import Loading from "../Loading/Loading";
 import PreviewData from "../PreviewData/PreviewData";
-
+import PreviewClassified from "../PreviewClassified/PreviewClassified";
 import PastQueries from "../PastQueriesPage/PastQueries";
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class Home extends Component {
     return (
       <StepWizard nav="" onStepChange={() => this.updateCounter()}>
         <PastQueries />
-        <PreviewData isPast={true} />
+        <PreviewClassified />
       </StepWizard>
     );
   }
