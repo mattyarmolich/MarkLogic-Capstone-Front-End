@@ -49,8 +49,12 @@ class ResultPage extends Component {
               ))}
           </ul>
           <div className="bottom-part">
-            <button onClick={this.props.previousStep}>previous</button>
-            <button onClick={this.props.nextStep}>next</button>
+            <button className="button-style" onClick={this.props.previousStep}>
+              previous
+            </button>
+            <button className="button-style" onClick={this.props.nextStep}>
+              next
+            </button>
           </div>
         </div>
       </div>

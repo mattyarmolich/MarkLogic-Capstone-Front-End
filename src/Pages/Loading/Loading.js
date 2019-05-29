@@ -65,9 +65,13 @@ class Loading extends Component {
             </div>
           </div>
           <div className="bottom-part">
-            <button onClick={this.props.previousStep}>previous</button>
+            <button className="button-style" onClick={this.props.previousStep}>
+              previous
+            </button>
             {!this.props.loading ? (
-              <button onClick={this.props.nextStep}>next</button>
+              <button className="button-style" onClick={this.props.nextStep}>
+                next
+              </button>
             ) : (
               <div />
             )}

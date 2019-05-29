@@ -1,0 +1,32 @@
+.Export-container {
+    display: flex;
+    color: black;
+    margin-top: 5%;
+    align-items: center;
+    justify-content: flex-end;
+  
+    .Title-text {
+      margin: 4px;
+      margin-top: 20px
+    }
+
+    .preview-view {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        height: 80vh;
+        background-color: #ecf0f1;
+        border-radius: 4px;
+      }
+  
+    .button-style {
+      margin: 6px;
+      border-radius: 4px;
+      align-self: center;
+      margin-top: 6px;
+      color: black;
+      height: 20px;
+      font-size: 14px;
+      width:20%;
+    }
+}
