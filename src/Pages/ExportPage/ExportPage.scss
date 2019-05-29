@@ -1,4 +1,5 @@
-.Export-container {
+
+.export-container {
     display: flex;
     color: black;
     margin-top: 5%;
@@ -9,24 +10,41 @@
       margin: 4px;
       margin-top: 20px
     }
-
-    .preview-view {
-        display: flex;
-        flex-direction: column;
-        width: 90vw;
-        height: 80vh;
-        background-color: #ecf0f1;
-        border-radius: 4px;
-      }
+    .bottom-part {
+      display: flex;
+      height: 100%;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 24px;
+    }
+    .export-view {
+      display: flex;
+      flex-direction: column;
+      width: 90vw;
+      height: 80vh;
+      background-color: #ecf0f1;
+      border-radius: 4px;
+    }
   
     .button-style {
-      margin: 6px;
       border-radius: 4px;
-      align-self: center;
+      margin: 6px;
       margin-top: 6px;
       color: black;
-      height: 20px;
       font-size: 14px;
+      height: 40px;
       width:20%;
+      margin: 6px;
     }
-}
+  
+    .active-show {
+      margin: 24px;
+      transition: 1s all;
+      opacity: 1;
+    }
+  
+    .inactive {
+      opacity: 0;
+    }
+  }
+  

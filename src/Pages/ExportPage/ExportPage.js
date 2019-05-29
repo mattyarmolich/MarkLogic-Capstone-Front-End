@@ -27,8 +27,8 @@ class ExportPage extends Component {
 
   render() {
     return (
-      <div className="loading-container">
-        <div className="loading-view">
+      <div className="export-container">
+        <div className="export-view">
           <div className="Title-text">Export</div>
           <div>
             <div>Download Classified Data</div>
