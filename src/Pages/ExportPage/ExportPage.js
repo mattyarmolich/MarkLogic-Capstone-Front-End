@@ -33,17 +33,17 @@ class ExportPage extends Component {
           <div>
             <div>Download Classified Data</div>
             <button
-              classname="button-style"
+              className="button-style"
               onClick={() => this._downloadTxtFile(this.props.classified)}
             >
               Download
             </button>
           </div>
           <div className="bottom-part">
-            <button classname="button-style" onClick={this.props.firstStep}>
+            <button className="button-style" onClick={this.props.firstStep}>
               Back to Beginning
             </button>
-            <button classname="button-style" onClick={this.props.previousStep}>
+            <button className="button-style" onClick={this.props.previousStep}>
               previous
             </button>
           </div>
